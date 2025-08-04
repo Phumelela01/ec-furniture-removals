@@ -89,7 +89,6 @@
   }
 
   .header-content {
-    flex-direction: column;
     align-items: flex-start;
   }
 
@@ -112,11 +111,6 @@
 
   .nav-menu.active {
     display: flex;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .header-right {
@@ -153,36 +147,46 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   .nav-menu {
     display: none;
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
     margin-top: 1rem;
   }
 
   .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
     display: block;
+    cursor: pointer;
   }
 
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .header-contact {
-    margin-top: 1rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
+  .phone {
+    margin-top: 0.5rem;
   }
 }
+
 
 
         .logo {
@@ -783,9 +787,14 @@
       </div>
 
       <!-- Right: Hamburger + Phone + Nav -->
-      <div class="header-right">
-        <button class="hamburger" aria-label="Toggle menu">☰</button>
-        <a href="tel:0738853686" class="header-contact">📞 073 885 3686</a>
+        <div class="header-right">
+  <div class="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="phone">
+    <i class="fas fa-phone"></i> 073 885 3686
+  </div>
+</div>
         <nav class="nav-menu">
           <ul>
             <li><a href="#home">Home</a></li>
