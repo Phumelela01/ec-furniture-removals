@@ -36,23 +36,26 @@
       /* Header styling */
 .header-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start; /* important to stop things from stacking oddly */
   flex-wrap: wrap;
   padding: 1rem 0;
 }
 
-/* Group logo + hamburger */
+/* Logo left */
 .header-left {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex: 1;
 }
 
-/* Align hamburger to the far right inside .header-left */
+/* Right side: hamburger, contact number, and nav */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Hamburger styles */
 .hamburger {
-  margin-left: auto;
   font-size: 2rem;
   background: none;
   border: none;
@@ -60,20 +63,67 @@
   display: none;
 }
 
-@media (max-width: 768px) {
-  .header-left {
-    width: 100%;
-  }
+/* Contact number below hamburger */
+.header-contact {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
 
+/* Responsive: Show hamburger and stack */
+@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 1rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
     width: 100%;
+    align-items: flex-end;
   }
 }
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
 
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 1rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    align-items: flex-end;
+  }
+}
 
 
 /* Default: show nav menu */
@@ -716,37 +766,40 @@
 <body>
     <!-- Header -->
    <header>
-   <div class="header-content">
-  <!-- Logo and hamburger grouped -->
-  <div class="header-left">
-    <div class="logo">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="logo.png" alt="EC Furniture Removals Logo" style="height: 50px; width: auto;" />
-        <div>
-          <h1 style="margin: 0;">EC Furniture Removals</h1>
-          <p style="margin: 0;">From Point A to Point Z</p>
+  <div class="container">
+    <div class="header-content">
+      
+      <!-- Left: Logo -->
+      <div class="header-left">
+        <div class="logo">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.png" alt="EC Furniture Removals Logo" style="height: 50px; width: auto;" />
+            <div>
+              <h1 style="margin: 0;">EC Furniture Removals</h1>
+              <p style="margin: 0;">From Point A to Point Z</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Right: Hamburger + Phone + Nav -->
+      <div class="header-right">
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <a href="tel:0738853686" class="header-contact">📞 073 885 3686</a>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#quote">Quote</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
     </div>
-
-    <!-- Move hamburger inside this left block -->
-    <button class="hamburger" aria-label="Toggle menu">☰</button>
   </div>
-
-  <!-- Navigation and contact on the right -->
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#quote">Quote</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <a href="tel:0738853686" class="header-contact">📞 073 885 3686</a>
-</div>
 </header>
 
 
