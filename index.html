@@ -42,14 +42,24 @@
   padding: 1rem 0;
 }
 
-/* Hide hamburger on desktop */
+/* Group logo + hamburger */
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* Align hamburger to the far right inside .header-left */
 .hamburger {
+  margin-left: auto;
   font-size: 2rem;
   background: none;
   border: none;
-  display: none;
   cursor: pointer;
+  display: none;
 }
+
 
 /* Default: show nav menu */
 .nav-menu {
@@ -690,38 +700,38 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="logo.png" alt="EC Furniture Removals Logo" style="height: 50px; width: auto;" />
-          <div>
-            <h1 style="margin: 0;">EC Furniture Removals</h1>
-            <p style="margin: 0;">From Point A to Point Z</p>
-          </div>
+   <header>
+   <div class="header-content">
+  <!-- Logo and hamburger grouped -->
+  <div class="header-left">
+    <div class="logo">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="logo.png" alt="EC Furniture Removals Logo" style="height: 50px; width: auto;" />
+        <div>
+          <h1 style="margin: 0;">EC Furniture Removals</h1>
+          <p style="margin: 0;">From Point A to Point Z</p>
         </div>
       </div>
-
-      <!-- Hamburger Menu Button -->
-      <button class="hamburger" aria-label="Toggle menu">☰</button>
-
-      <!-- Navigation Menu -->
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#quote">Quote</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Contact Number -->
-      <a href="tel:0738853686" class="header-contact">📞 073 885 3686</a>
     </div>
+
+    <!-- Move hamburger inside this left block -->
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
   </div>
+
+  <!-- Navigation and contact on the right -->
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#quote">Quote</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <a href="tel:0738853686" class="header-contact">📞 073 885 3686</a>
+</div>
 </header>
 
 
